@@ -1,201 +1,175 @@
 const questionBank = [
 	{
 		question: 'What is the name of the first human civilization?',
-		answers: {
-			a: 'Persia',
-			b: 'Mesopotamia',
-			c: 'The Aztecs',
-			d: 'Pangaea',
-		},
-		correctAnswer: 'b',
+		answers: [
+			{ text: 'Persia', correct: false },
+			{ text: 'Mesopotamia', correct: true },
+			{ text: 'The Aztecs', correct: false },
+			{ text: 'Pangaea', correct: false },
+		],
 	},
 	{
 		question: 'When was the first television invented?',
-		answers: {
-			a: '1895',
-			b: '1954',
-			c: '1927',
-			d: '1912',
-		},
-		correctAnswer: 'c',
+		answers: [
+			{ text: '1895', correct: false },
+			{ text: '1954', correct: false },
+			{ text: '1927', correct: true },
+			{ text: '1912', correct: false },
+		],
 	},
 	{
 		question:
 			'Which US president served the shortest term of about two months because of dying from a simple cold?',
-		answers: {
-			a: 'William Henry Harrison',
-			b: 'Martin Van Buren',
-			c: 'Rutherford Hayes',
-			d: 'John Adams',
-		},
-		correctAnswer: 'a',
+		answers: [
+			{ text: 'William Henry Harrison', correct: true },
+			{ text: 'Martin Van Buren', correct: false },
+			{ text: 'Rutherford Hayes', correct: false },
+			{ text: 'John Adams', correct: false },
+		],
 	},
 	{
-		question: 'Which astronaut was the first man to conduct a spacewalk',
-		answers: {
-			a: 'Neil Armstrong',
-			b: 'Buzz Aldrin',
-			c: 'Elon Musk',
-			d: 'Alexei Leonov',
-		},
-		correctAnswer: 'd',
+		question: 'Which astronaut was the first man to conduct a spacewalk?',
+		answers: [
+			{ text: 'Neil Armstrong', correct: false },
+			{ text: 'Buzz Aldrin', correct: false },
+			{ text: 'Elon Musk', correct: false },
+			{ text: 'Alexei Leonov', correct: true },
+		],
 	},
 	{
 		question:
 			'What famous 5th century A.D. conqueror was known as “The Scourge of God”?',
-		answers: {
-			a: 'Hannibal',
-			b: 'Genghis Khan',
-			c: 'Attila The Hun',
-			d: 'Alexander The Great',
-		},
-		correctAnswer: 'c',
+		answers: [
+			{ text: 'Hannibal', correct: false },
+			{ text: 'Genghis Khan', correct: false },
+			{ text: 'Attila The Hun', correct: true },
+			{ text: 'Alexander The Great', correct: false },
+		],
 	},
 	{
-		question: 'Who created the first successful printing press',
-		answers: {
-			a: 'Thomas Edison',
-			b: 'Leonardo Da Vinci',
-			c: 'Nikola Tesla',
-			d: 'Johannes Gutenberg',
-		},
-		correctAnswer: 'd',
+		question: 'Who created the first successful printing press?',
+		answers: [
+			{ text: 'Thomas Edison', correct: false },
+			{ text: 'Leonardo Da Vinci', correct: false },
+			{ text: 'Nikola Tesla', correct: false },
+			{ text: 'Johannes Gutenberg', correct: true },
+		],
 	},
 	{
 		question:
 			'There have been four eons since the Earth’s beginning. What is the name of the current eon?',
-		answers: {
-			a: 'Phanerozoic Eon',
-			b: 'Proterozoic Eon',
-			c: 'Archean Eon',
-			d: 'Hadean Eon',
-		},
-		correctAnswer: 'a',
+		answers: [
+			{ text: 'Phanerozoic Eon', correct: true },
+			{ text: 'Proterozoic Eon', correct: false },
+			{ text: 'Archean Eon', correct: false },
+			{ text: 'Hadean Eon', correct: false },
+		],
 	},
 	{
 		question: 'Who was the first woman in space?',
-		answers: {
-			a: 'Anna Lee Fisher',
-			b: 'Valentina Tereshkova',
-			c: 'Sally Ride',
-			d: 'Mae Jemison',
-		},
-		correctAnswer: 'b',
+		answers: [
+			{ text: 'Anna Lee Fisher', correct: false },
+			{ text: 'Valentina Tereshkova', correct: true },
+			{ text: 'Sally Ride', correct: false },
+			{ text: 'Mae Jemison', correct: false },
+		],
 	},
 	{
 		question: 'In which country was the largest known T-Rex skeleton found?',
-		answers: {
-			a: 'Canada',
-			b: 'Mexico',
-			c: 'Australia',
-			d: 'Brazil',
-		},
-		correctAnswer: 'a',
+		answers: [
+			{ text: 'Canada', correct: true },
+			{ text: 'Mexico', correct: false },
+			{ text: 'Australia', correct: false },
+			{ text: 'Brazil', correct: false },
+		],
 	},
 	{
 		question:
 			'The Shortest war in human civilization history was between England and Zanzibar. How many hours did it last?',
-		answers: {
-			a: 'Six Days',
-			b: 'Less than an hour',
-			c: 'Five Months',
-			d: 'Three weeks',
-		},
-		correctAnswer: 'b',
+		answers: [
+			{ text: 'Six Days', correct: false },
+			{ text: 'Less than an hour', correct: true },
+			{ text: 'Five Months', correct: false },
+			{ text: 'Three weeks', correct: false },
+		],
 	},
 ];
 
-const questions = document.querySelector('.trivia');
-const option1 = document.querySelector('.answer1');
-const option2 = document.querySelector('.answer2');
-const option3 = document.querySelector('.answer3');
-const option4 = document.querySelector('.answer4');
-const holdTrivia = document.querySelector('.trivia');
-const next = document.querySelector('.next-btn');
+const container = document.getElementById('question-container');
+const getQuestion = document.getElementById('question');
+const answerButtonsElement = document.getElementById('answer-buttons');
+const readyButton = document.getElementById('ready-btn');
+const nextButton = document.getElementById('next-btn');
 
-let currentAnswer = ' ';
-let answerSelected = false;
+function startGame() {
+	readyButton.classList.add('hide');
+	mixUp = questionBank.sort(() => Math.random() - 0.5);
+	currentQuestion = 0;
+	container.classList.remove('hide');
+	nextQuestion();
+}
 
-let questionSelect = 0;
-questions.innerText = questionBank[questionSelect].question;
-option1.innerText = questionBank[questionSelect].answers.a;
-option2.innerText = questionBank[questionSelect].answers.b;
-option3.innerText = questionBank[questionSelect].answers.c;
-option4.innerText = questionBank[questionSelect].answers.d;
+function showQuestion(question) {
+	getQuestion.innerText = question.question;
+	question.answers.forEach((answer) => {
+		const button = document.createElement('button');
+		button.innerText = answer.text;
+		button.classList.add('btn');
+		if (answer.correct) {
+			button.dataset.correct = answer.correct;
+		}
+		button.addEventListener('click', chooseAnswer);
+		answerButtonsElement.appendChild(button);
+	});
+}
 
-next.addEventListener('click', (event) => {
-	event.preventDefault;
-	answerSelected = false;
-	questionSelect++;
-	if (questionSelect === 10) {
-		next.style.display = 'none';
-	}
-	document.getElementById('wrong').innerText = '';
-	option1.innerText = questionBank[questionSelect].answers.a;
-	option2.innerText = questionBank[questionSelect].answers.b;
-	option3.innerText = questionBank[questionSelect].answers.c;
-	option4.innerText = questionBank[questionSelect].answers.d;
-});
+function nextQuestion() {
+	reset();
+	showQuestion(mixUp[currentQuestion]);
+}
 
-option1.addEventListener('click', (event) => {
-	event.preventDefault;
-	if (answerSelected) {
-		return;
-	}
-	currentAnswer = 'a';
-	if (currentAnswer === questionBank[questionSelect].correctAnswer) {
-		document.getElementById('correct').innerText = 'Correct';
+function chooseAnswer(event) {
+	const pressedButton = event.target;
+	const correct = pressedButton.dataset.correct;
+	addClass(document.body, correct);
+	Array.from(answerButtonsElement.children).forEach((button) => {
+		addClass(button, button.dataset.correct);
+	});
+	if (mixUp.length > currentQuestion + 1) {
+		nextButton.classList.remove('hide');
 	} else {
-		document.getElementById('wrong').innerText = 'Incorrect';
+		readyButton.innerText = 'Restart';
+		readyButton.classList.remove('hide');
+		alert('GAME OVER');
 	}
-	answerSelected = true;
-});
+}
 
-option2.addEventListener('click', (event) => {
-	event.preventDefault;
-	if (answerSelected) {
-		return;
+function reset() {
+	deleteClass(document.body);
+	nextButton.classList.add('hide');
+	while (answerButtonsElement.firstChild) {
+		answerButtonsElement.removeChild(answerButtonsElement.firstChild);
 	}
-	currentAnswer = 'b';
-	if (currentAnswer === questionBank[questionSelect].correctAnswer) {
-		document.getElementById('right').innerText = 'Correct';
-	} else {
-		document.getElementById('wrong').innerText = 'Incorrect';
-	}
-	answerSelected = true;
-});
+}
 
-option3.addEventListener('click', (event) => {
-	event.preventDefault;
-	if (answerSelected) {
-		return;
-	}
-	currentAnswer = 'c';
-	if (currentAnswer === questionBank[questionSelect].correctAnswer) {
-		document.getElementById('right').innerText = 'Correct';
+function addClass(element, correct) {
+	deleteClass(element);
+	if (correct) {
+		element.classList.add('correct');
 	} else {
-		document.getElementById('wrong').innerText = 'Incorrect';
+		element.classList.add('wrong');
 	}
-	answerSelected = true;
-});
-option4.addEventListener('click', (event) => {
-	event.preventDefault;
-	if (answerSelected) {
-		return;
-	}
-	currentAnswer = 'd';
-	if (currentAnswer === questionBank[questionSelect].correctAnswer) {
-		document.getElementById('right').innerText = 'Correct';
-	} else {
-		document.getElementById('wrong').innerText = 'Incorrect';
-	}
-	answerSelected = true;
-});
+}
 
-holdTrivia.addEventListener('click', (event) => {
-	event.preventDefault;
-	if (questionSelect === 10) {
-		holdTrivia.style.display = 'none';
-		gameOver();
-	}
+function deleteClass(element) {
+	element.classList.remove('correct');
+	element.classList.remove('wrong');
+}
+
+let mixUp, currentQuestion;
+
+readyButton.addEventListener('click', startGame);
+nextButton.addEventListener('click', () => {
+	currentQuestion++;
+	nextQuestion();
 });
