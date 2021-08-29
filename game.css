@@ -17,7 +17,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color:gray;
+  background-color: black;
 }
 
 .container {
@@ -36,7 +36,7 @@ body {
   margin: 20px 0;
 }
 
-#btn {
+.btn {
   background-color: purple;
   border-radius: 5px;
   padding: 5px 10px;
@@ -44,12 +44,20 @@ body {
   outline: none;
 }
 
-#btn:hover {
+.btn:hover {
   border-color: black;
   background-color: magenta;
 }
 
-.next-btn {
+.btn.correct {
+    background-color: green;
+}
+
+.btn.wrong{
+    background-color: red;
+}
+
+.ready-btn, .next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
@@ -59,4 +67,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hide {
+  display: none;
 }
