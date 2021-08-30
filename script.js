@@ -93,6 +93,62 @@ const questionBank = [
 			{ text: 'Three weeks', correct: false },
 		],
 	},
+	{
+		question:
+			'In the 5,000 years of human history, what is the one disease that has been completely eradicated?',
+		answers: [
+			{ text: 'Smallpox', correct: true },
+			{ text: 'Scurvy', correct: false },
+			{ text: 'Polio', correct: false },
+			{ text: 'Yellow Fever', correct: false },
+		],
+	},
+	{
+		question: 'Where is AREA 51 located?',
+		answers: [
+			{ text: 'California', correct: false },
+			{ text: 'Colorado', correct: false },
+			{ text: 'New Mexico', correct: true },
+			{ text: 'Nevada', correct: false },
+		],
+	},
+	{
+		question: 'Who is the Greek goddess of victory?',
+		answers: [
+			{ text: 'Athena', correct: false },
+			{ text: 'Nike', correct: true },
+			{ text: 'Hera', correct: false },
+			{ text: 'Aphrodite', correct: false },
+		],
+	},
+	{
+		question: 'What year was the first internet domain registered?',
+		answers: [
+			{ text: '1978', correct: false },
+			{ text: '1969', correct: false },
+			{ text: '1993', correct: false },
+			{ text: '1985', correct: true },
+		],
+	},
+	{
+		question:
+			'Which international organization formed after World War I and was headquartered in Geneva, Switzerland?',
+		answers: [
+			{ text: 'The Central Intelligence Agency', correct: false },
+			{ text: 'The League of Nations', correct: true },
+			{ text: 'The United Nations', correct: false },
+			{ text: 'The Justice League', correct: false },
+		],
+	},
+	{
+		question: 'Earth is the _ planet from the sun',
+		answers: [
+			{ text: 'third', correct: true },
+			{ text: 'sixth', correct: false },
+			{ text: 'ninth', correct: false },
+			{ text: 'first', correct: false },
+		],
+	},
 ];
 
 const container = document.getElementById('question-container');

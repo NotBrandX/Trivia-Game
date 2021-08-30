@@ -27,6 +27,7 @@ body {
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
+  font-size: 20;
 }
 
 .btn-grid {
@@ -42,6 +43,8 @@ body {
   padding: 5px 10px;
   color: white;
   outline: none;
+  font-family: 'Share Tech', sans-serif;
+  font-size: 20px;
 }
 
 .btn:hover {
