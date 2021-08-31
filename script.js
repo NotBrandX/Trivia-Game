@@ -228,7 +228,6 @@ function nextQuestion() {
 function chooseAnswer(event) {
 	const pressedButton = event.target;
 	const correct = pressedButton.dataset.correct;
-	console.log(correct);
 	if (event.target.dataset.correct) {
 		score += 5;
 		event.target.disabled = true;
