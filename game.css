@@ -1,6 +1,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: Gotham Rounded;
+  font-family: 'Share Tech', sans-serif;
+
 }
 
 :root {
@@ -28,6 +29,8 @@ body {
   padding: 10px;
   box-shadow: 0 0 10px 2px;
   font-size: 20;
+  z-index: 1;
+  opacity: .8;
 }
 
 .score-container{
@@ -38,6 +41,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    z-index: 2;
 }
 
 
@@ -85,4 +89,23 @@ body {
 
 .hide {
   display: none;
+}
+
+#videoBG {
+    position: fixed;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #videoBG {
+        width: 100%;
+        height:auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    #videoBG {
+        width: auto;
+        height:100%;
+    }
 }
