@@ -149,6 +149,42 @@ const questionBank = [
 			{ text: 'first', correct: false },
 		],
 	},
+	{
+		question: 'What was the name of the first video posted on YouTube?',
+		answers: [
+			{ text: 'Evolution of Dance', correct: false },
+			{ text: 'Charlie Bit My Finger', correct: false },
+			{ text: 'Me at the zoo', correct: true },
+			{ text: 'Chocolate Rain', correct: false },
+		],
+	},
+	{
+		question: 'Which is the smallest planet within  solar system?',
+		answers: [
+			{ text: 'Mercury', correct: true },
+			{ text: 'Pluto', correct: false },
+			{ text: 'Jupiter', correct: false },
+			{ text: 'Uranus', correct: false },
+		],
+	},
+	{
+		question: 'Who invented the telephone?',
+		answers: [
+			{ text: 'Alfred Nobel', correct: false },
+			{ text: 'Steve Jobs', correct: false },
+			{ text: 'Samuel Morse', correct: false },
+			{ text: 'Alexander Graham Bell', correct: true },
+		],
+	},
+	{
+		question: 'In which year did World War II end?',
+		answers: [
+			{ text: '1939', correct: false },
+			{ text: '1942', correct: false },
+			{ text: '1945', correct: true },
+			{ text: '1948', correct: false },
+		],
+	},
 ];
 
 const container = document.getElementById('question-container');
@@ -156,6 +192,9 @@ const getQuestion = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const readyButton = document.getElementById('ready-btn');
 const nextButton = document.getElementById('next-btn');
+const triviaScore = document.querySelector('.trivia-score');
+
+let score = 0;
 
 function startGame() {
 	readyButton.classList.add('hide');
@@ -163,6 +202,8 @@ function startGame() {
 	currentQuestion = 0;
 	container.classList.remove('hide');
 	nextQuestion();
+	score = 0;
+	triviaScore.innerText = score;
 }
 
 function showQuestion(question) {
@@ -189,7 +230,7 @@ function chooseAnswer(event) {
 	const correct = pressedButton.dataset.correct;
 	addClass(document.body, correct);
 	Array.from(answerButtonsElement.children).forEach((button) => {
-		addClass(button, button.dataset.correct);
+		// addClass(button, button.dataset.correct);
 	});
 	if (mixUp.length > currentQuestion + 1) {
 		nextButton.classList.remove('hide');
@@ -197,6 +238,7 @@ function chooseAnswer(event) {
 		readyButton.innerText = 'Restart';
 		readyButton.classList.remove('hide');
 		alert('GAME OVER');
+		restartGame();
 	}
 }
 
@@ -212,8 +254,11 @@ function addClass(element, correct) {
 	deleteClass(element);
 	if (correct) {
 		element.classList.add('correct');
+		score += 5;
+		triviaScore.innerText = score;
 	} else {
 		element.classList.add('wrong');
+		score += 0;
 	}
 }
 

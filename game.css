@@ -30,6 +30,17 @@ body {
   font-size: 20;
 }
 
+.score-container{
+    color: purple;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -60,7 +71,7 @@ body {
     background-color: red;
 }
 
-.ready-btn, .next-btn {
+.ready-btn, .next-btn{
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
