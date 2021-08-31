@@ -42,6 +42,7 @@ body {
     align-items: center;
     flex-wrap: nowrap;
     z-index: 2;
+    font-size: 20;
 }
 
 

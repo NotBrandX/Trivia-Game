@@ -159,7 +159,7 @@ const questionBank = [
 		],
 	},
 	{
-		question: 'Which is the smallest planet within  solar system?',
+		question: 'Which is the smallest planet within this solar system?',
 		answers: [
 			{ text: 'Mercury', correct: true },
 			{ text: 'Pluto', correct: false },
@@ -228,9 +228,13 @@ function nextQuestion() {
 function chooseAnswer(event) {
 	const pressedButton = event.target;
 	const correct = pressedButton.dataset.correct;
-	addClass(document.body, correct);
+	console.log(correct);
+	if (event.target.dataset.correct) {
+		score += 5;
+		event.target.disabled = true;
+	}
 	Array.from(answerButtonsElement.children).forEach((button) => {
-		// addClass(button, button.dataset.correct);
+		addClass(button, button.dataset.correct);
 	});
 	if (mixUp.length > currentQuestion + 1) {
 		nextButton.classList.remove('hide');
@@ -238,7 +242,6 @@ function chooseAnswer(event) {
 		readyButton.innerText = 'Restart';
 		readyButton.classList.remove('hide');
 		alert('GAME OVER');
-		restartGame();
 	}
 }
 
@@ -254,11 +257,9 @@ function addClass(element, correct) {
 	deleteClass(element);
 	if (correct) {
 		element.classList.add('correct');
-		score += 5;
 		triviaScore.innerText = score;
 	} else {
 		element.classList.add('wrong');
-		score += 0;
 	}
 }
 
