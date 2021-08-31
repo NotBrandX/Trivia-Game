@@ -34,7 +34,7 @@ body {
 }
 
 .score-container{
-    color: purple;
+    color: white;
     padding: 2rem;
     display: flex;
     flex-direction: row;
