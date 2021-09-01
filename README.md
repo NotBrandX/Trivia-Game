@@ -13,7 +13,7 @@ My app is a self-scoring trivia game. The player guesses the answers and the com
 - JavaScript
 - GitHub
 ## Installation instructions
-No installation is necessary.
+No installation is necessary. You can play it here: https://notbrandx.github.io/Trivia-Game/
 
 ## Wireframes
 
