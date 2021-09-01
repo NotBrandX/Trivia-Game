@@ -2,6 +2,19 @@
 
 My app is a self-scoring trivia game. The player guesses the answers and the computer will let them know if they're right.
 
+## Screenshots
+![Screen Shot 2021-08-31 at 4 32 42 PM](https://user-images.githubusercontent.com/56131542/131572022-48d8fdee-8f9c-44e1-8144-50771e923ca6.png)
+![Screen Shot 2021-08-31 at 4 41 50 PM](https://user-images.githubusercontent.com/56131542/131573089-4cc253df-e759-4b6c-bf49-83425a3a6cdb.png)
+
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- GitHub
+## Installation instructions
+No installation is necessary.
+
 ## Wireframes
 
 ![Trivia Game Main Screen](https://user-images.githubusercontent.com/56131542/130997707-a61905f9-0903-4001-8b3a-528d4a556ba1.jpg)

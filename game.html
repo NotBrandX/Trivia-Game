@@ -1,9 +1,9 @@
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
-
 <!DOCTYPE html>
 <html lang="en">
 
+    
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +13,21 @@
 
 <body>
 
-    <header class=>
-        <div class="score-container">
-            <h2>Score: </h2>
-            <h2 class="trivia-score">000</h2>
+    <audio src="./VULFPECK.mp3" controls loop>
+    </audio>
+
+    <div class="video-container">
+        <div class="foreground">
+            <iframe id="videoBG"  src="https://www.youtube.com/embed/TrJs7VRkztI?controls=0&amp;showinfo=0&amp;rel=0&autoplay=1&amp;loop=1&mute=1" title="YouTube video player"></iframe>
         </div>
+    </div>
+
+<div id="vidtop-content">
+    <header>
+    <div class="score-container">
+            <h2>Score: </h2>
+            <h2 class="trivia-score">0</h2>
+    </div>
     </header>
 
     <div class="container">
@@ -34,7 +44,12 @@
             <button id="ready-btn" class="ready-btn btn">Are you ready?</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
+
     </div>
+    
+</div>
+
+
     <script src="./script.js"></script>
 </body>
 
