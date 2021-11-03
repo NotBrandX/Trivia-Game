@@ -4,6 +4,12 @@
 
 }
 
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -22,7 +28,7 @@ body {
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
-  font-size: 20px;
+  font-size: 20;
   z-index: 1;
   opacity: .8;
 }
@@ -36,7 +42,7 @@ body {
     align-items: center;
     flex-wrap: nowrap;
     z-index: 2;
-    font-size: 20px;
+    font-size: 20;
 }
 
 
@@ -47,7 +53,6 @@ body {
   margin: 20px 0;
 }
 
-/* Used https://www.w3schools.com/css/css3_buttons.asp for help with styling buttons */
 .btn {
   background-color: purple;
   border-radius: 5px;
@@ -87,31 +92,21 @@ body {
   display: none;
 }
 
-/* Used http://thenewcode.com/500/Use-YouTube-Videos-as-Fullscreen-Web-Page-Backgrounds for help with video back ground */
+#videoBG {
+    position: fixed;
+    z-index: -1;
+}
+
 @media (min-aspect-ratio: 16/9) {
-    .foreground { height: 300%; top: -100%; }
+    #videoBG {
+        width: 100%;
+        height:auto;
+    }
 }
+
 @media (max-aspect-ratio: 16/9) {
-    .foreground { width: 300%; left: -100%; }
-}
-
-
-.video-container {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -99;
-}
-
-.foreground,
-.video-container iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-}
-#vidtop-content {
-    top: 0;
+    #videoBG {
+        width: auto;
+        height:100%;
+    }
 }
